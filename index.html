@@ -325,8 +325,15 @@
 <!-- BEGIN: Testimonials -->
 <section class="py-32 px-8 overflow-hidden" data-purpose="testimonials" id="testimonials">
 <div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
+<div>
 <h2 class="display-serif text-7xl mb-4">Testimonials</h2>
-<p class="label-sans text-neutral-500 mb-16">Voices of Transformation</p>
+<p class="label-sans text-neutral-500">Voices of Transformation</p>
+</div>
+<button type="button" id="testimonialsNextBtn" class="self-start md:self-auto flex items-center justify-center w-14 h-14 border-2 border-black hover:bg-black hover:text-white transition-colors shrink-0" aria-label="Next testimonials">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+</button>
+</div>
 <div class="testimonials-four-wrap overflow-hidden">
 <div class="testimonials-track flex transition-transform duration-700 ease-in-out" id="testimonialsTrack" style="transform: translateX(0);">
 <div class="testimonial-card">
@@ -647,6 +654,14 @@
       if (timer) { clearInterval(timer); timer = null; }
     });
     wrap.addEventListener('mouseleave', startTimer);
+  }
+
+  var nextBtn = document.getElementById('testimonialsNextBtn');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      next();
+      startTimer();
+    });
   }
 
   goTo(0);
